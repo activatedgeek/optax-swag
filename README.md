@@ -11,7 +11,7 @@ For now, the only available mode of installation is directly from source as
 pip install git+https://github.com/activatedgeek/optax-swag.git
 ```
 
-**NOTE**: A PyPI package will be available soon.
+**TODO**: A PyPI package will be available soon.
 
 ## Usage
 
