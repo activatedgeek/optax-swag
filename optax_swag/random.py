@@ -10,8 +10,8 @@ def tree_split(key, ref_tree):
 
 
 @jax.jit
-def sample_tree_diag_gaussian(key, mean_tree, var_tree):
+def sample_tree_diag_gaussian(key, mean_tree, var_tree, eps=1e-6):
     _, key_tree = tree_split(key, mean_tree)
     def _sample_param(key, mu, var):
-        return mu + jnp.sqrt(var) * jax.random.normal(key, mu.shape, mu.dtype)
+        return mu + jnp.sqrt(var + eps) * jax.random.normal(key, mu.shape, mu.dtype)
     return jax.tree_util.tree_map(_sample_param, key_tree, mean_tree, var_tree)
