@@ -1,7 +1,10 @@
-from .transform import swag_diag
-from .random import sample_tree_diag_gaussian
+from .transform import swa, swag_diag, swag
+from .sample import sample_swag_diag, sample_swag
 
 __all__ = [
+    'swa',
     'swag_diag',
-    'sample_tree_diag_gaussian',
+    'swag',
+    'sample_swag_diag',
+    'sample_swag',
 ]
