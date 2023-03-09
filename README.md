@@ -51,7 +51,7 @@ swa_samples = 10
 
 swa_mean = opt_state.mean
 swa_params2 = opt_state.params2
-swa_var = jax.tree_util.tree_map(lambda mu, p2: jnp.square(mu) - p2,
+swa_var = jax.tree_util.tree_map(lambda mu, p2: jnp.clip(p2 - jnp.square(mu), a_min=1e-6),
                                     swa_mean, swa_params2)
 
 rng, *samples_rng = jax.random.split(rng, 1 + swa_samples)

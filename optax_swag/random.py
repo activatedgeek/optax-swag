@@ -17,13 +17,12 @@ def tree_split(key: chex.PRNGKey,
 
 @jax.jit
 def sample_tree_diag_gaussian(key: chex.PRNGKey, 
-                              mean_tree: chex.ArrayTree, var_tree: chex.ArrayTree,
-                              eps: float = 1e-6) -> chex.ArrayTree:
+                              mean_tree: chex.ArrayTree, var_tree: chex.ArrayTree) -> chex.ArrayTree:
     
     _, key_tree = tree_split(key, mean_tree)
     
     def _sample_param(key: chex.PRNGKey,
                       mu: chex.Array, var: chex.Array) -> chex.Array:
-        return mu + jnp.sqrt(var + eps) * jax.random.normal(key, mu.shape, mu.dtype)
+        return mu + jnp.sqrt(var) * jax.random.normal(key, mu.shape, mu.dtype)
     
     return jax.tree_util.tree_map(_sample_param, key_tree, mean_tree, var_tree)
