@@ -1,6 +1,9 @@
+import os
 from setuptools import setup, find_packages
 
-VERSION = '0.0.dev0'
+VERSION = os.environ.get('GITHUB_REF', '0.0.dev0')
+if VERSION.startswith('refs/tags'):
+    VERSION = VERSION.split('/')[-1]
 
 with open('README.md') as f:
     README = f.read()
