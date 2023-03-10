@@ -1,17 +1,22 @@
 # SWAG in Optax
 
+[![PyPI version](https://badge.fury.io/py/optax-swag.svg)](https://pypi.org/project/optax-swag/)
+
 This package implements [SWAG](https://arxiv.org/abs/1902.02476) 
 as an [Optax](https://optax.readthedocs.io/) transform to allow
 usage with [JAX](https://jax.readthedocs.io/).
 
 ## Installation
 
-For now, the only available mode of installation is directly from source as
-```
-pip install git+https://github.com/activatedgeek/optax-swag.git
+Install from `pip` as:
+```shell
+pip install optax-swag
 ```
 
-**TODO**: A PyPI package will be available soon.
+To install the latest directly from source, run
+```shell
+pip install git+https://github.com/activatedgeek/optax-swag.git
+```
 
 ## Usage
 
