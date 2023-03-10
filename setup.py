@@ -1,7 +1,7 @@
 import os
 from setuptools import setup, find_packages
 
-VERSION = os.environ.get('GITHUB_REF', '0.0.dev0')
+VERSION = os.environ.get('GITHUB_REF', 'v0.0.0-alpha1')
 if VERSION.startswith('refs/tags'):
     VERSION = VERSION.split('/')[-1]
 
